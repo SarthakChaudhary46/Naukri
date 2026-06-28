@@ -30,7 +30,15 @@ driver = webdriver.Chrome(options=options)
 try:
 
     print("Opening login page...")
+    driver.set_page_load_timeout(60)
     driver.get("https://www.naukri.com/nlogin/login")
+    
+    print(driver.current_url)
+    print(driver.title)
+    
+    time.sleep(5)
+    
+    print(driver.page_source[:1000])
 
     print("Waiting for username field...")
     WebDriverWait(driver, 20).until(
